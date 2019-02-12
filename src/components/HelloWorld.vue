@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
     <!-- 头部 -->
-    <mt-header fixed title="固定在顶部"></mt-header>
+    
     <h1>{{ msg }}</h1>
+    	
   </div>
 </template>
 
@@ -20,6 +21,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #app{
-  padding-top: 40px;
+  
 }
 </style>
