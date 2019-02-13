@@ -6,7 +6,7 @@ import vueResource from 'vue-resource'
 //安装 vue-resource
 Vue.use(vueResource)
 //配置vueresource根目录
-Vue.http.options.root = 'http://www.lovegf.cn:8899'
+Vue.http.options.root = 'http://www.lovegf.cn:8899/'
 //按需引入mint-ui
 import {Header,Swipe, SwipeItem } from 'mint-ui'
 Vue.component(Header.name,Header)
@@ -20,6 +20,11 @@ import moment from 'moment'
 Vue.filter("datastr", function(data,parent = 'YYYY-MM-DD') { 
   return moment(data).format(parent)
 })
+
+//应用评论子组件
+import component from './components/comment'
+//定义一个全局组件
+Vue.component('combox',component)
 
 //引用清除公共css样式的模块
 import './css/common.css'

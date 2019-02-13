@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
 import homeContainer from '@/pages/homeContainer'
 import memberContainer from '@/pages/memberContainer'
 import shopcarContainer from '@/pages/shopcarContainer'
 import searchContainer from '@/pages/searchContainer'
 import newListContainer from '@/pages/newListContainer'
+import newsinfoContainer from '@/pages/newsinfoContainer'
 Vue.use(Router)
 
 export default new Router({
@@ -16,7 +16,8 @@ export default new Router({
    {path:'/member',component:memberContainer},
    {path:'/shopcar',component:shopcarContainer},
    {path:'/search',component:searchContainer},
-   { path:'/home/newList',component:newListContainer}
+   { path:'/home/newList',component:newListContainer},
+   { path:'/home/newList/newsinfo/:id',component:newsinfoContainer}
   ],
   linkActiveClass:'mui-active'
 })

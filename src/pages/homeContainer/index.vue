@@ -33,6 +33,7 @@
     </div>
 </template>
 <script>
+import {Toast} from 'mint-ui'
 export default {
     data() {
         return {
@@ -46,7 +47,11 @@ export default {
         getSwipe(){
             //获取轮播图数据
             this.$http.get("api/getlunbo").then(result=>{
-                this.swipes = result.body.message;
+                if(result.body.status === 0){
+                    this.swipes = result.body.message;
+                }else{
+                    Toast('获取数据失败')
+                }
                 // console.log(result)
             })
         }
