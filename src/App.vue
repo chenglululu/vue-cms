@@ -1,7 +1,13 @@
 <template>
   <div id="app">
+		<!-- header部分 -->
     <mt-header fixed title="高级vue移动端项目"></mt-header>
-    <router-view/>
+		
+    <transition>
+			<router-view/>
+		</transition>
+
+		<!-- 底部导航 -->
     <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item" to="/home">
 				<span class="mui-icon mui-icon-home"></span>
@@ -33,6 +39,20 @@ export default {
 #app {
 	padding-top: 40px;
 	padding-bottom: 50px;
+	overflow-x: hidden;
+}
+.v-enter{
+	opacity: 0;
+	transform: translateX(100%)
+}
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%);
+	position: absolute
+}
+.v-enter-active,
+.v-leave-active{
+	transition: all 0.5s ease
 }
 </style>
 
