@@ -19,7 +19,8 @@ import moment from 'moment'
 //定义一个全局过滤器
 Vue.filter("datastr", function(data,parent = 'YYYY-MM-DD') { 
   return moment(data).format(parent)
-});
+})
+
 //引用清除公共css样式的模块
 import './css/common.css'
 //引用mui
