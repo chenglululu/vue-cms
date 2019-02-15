@@ -70,7 +70,7 @@ export default {
     },
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
     *{
         touch-action: pan-x;    //解决passive报错
     }
