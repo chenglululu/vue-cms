@@ -1,12 +1,13 @@
 <template>
     <div class="newsinfo">
         <h1>{{ newsinfo.title }}</h1>
+        <hr>
         <div class="subtitle">
             <span>发表时间：{{ newsinfo.add_time | datastr }}</span>
             <span>点击：{{ newsinfo.click }}次</span>
         </div>
         <div class="content" v-html=" newsinfo.content "></div>
-        <combox></combox>
+        <combox :id="this.id"></combox>
     </div>
 </template>
 <script>
@@ -24,7 +25,7 @@ export default {
     methods: {
         getnewsinfo(){
             this.$http.get('api/getnew/'+this.id).then((result)=>{
-                console.log(result)
+                // console.log(result)
                 if(result.body.status===0){
                     this.newsinfo = result.body.message[0]
                 }else{
