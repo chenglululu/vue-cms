@@ -40,7 +40,7 @@ export default {
         },
         getImages(){
             this.$http.get('api/getthumimages/'+this.id).then(result=>{
-                console.log(result)
+                // console.log(result)
                 result.body.message.forEach(item => {
                     item.w = 600
                     item.h = 400
@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     h3{
         color: red;
         font-size: 16px;
@@ -67,9 +67,11 @@ export default {
     }
     .content{
         font-size: 15px;
+        padding: 0 5px;
     }
     img{
         margin: 5px 10px;
         box-shadow: 0 0 8px rgb(95, 92, 92);
+        margin-left: 20px;
     }
 </style>
