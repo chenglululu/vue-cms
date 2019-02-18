@@ -19,7 +19,7 @@ export default {
     methods: {
         getDesc(){
             this.$http.get('api/goods/getdesc/'+this.id).then(result=>{
-                console.log(result)
+                // console.log(result)
                 this.Count=result.body.message[0]
             })
         }

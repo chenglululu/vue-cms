@@ -31,7 +31,7 @@ export default {
     methods: {
         getgoodslist(){
             this.$http.get('api/getgoods?pageindex='+this.pageindex).then(result=>{
-                console.log(result)
+                // console.log(result)
                 this.goodsinfo =this.goodsinfo.concat(result.body.message) 
             })
         },

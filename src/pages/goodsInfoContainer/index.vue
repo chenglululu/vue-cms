@@ -32,7 +32,7 @@
             <input type="button" value="+" @click="buyCount < price.stock_quantity && buyCount++">
           </div>
           <mt-button type="primary" size="small">立即购买</mt-button>
-          <mt-button type="danger" size="small" @click="isshows">加入购物车</mt-button>
+          <mt-button type="danger" size="small" @click="addToshopcar" >加入购物车</mt-button>
         </div>
       </div>
     </div>
@@ -69,31 +69,41 @@ export default {
       this.getPrice()
   },
   methods: {
-      getlunbotu(){ //获取轮播图
+      getlunbotu(){ 
+        //获取轮播图
           this.$http.get('api/getthumimages/'+this.id).then(result=>{
             //   console.log(result)
               this.swipe=result.body.message
           })
       },
-      getPrice(){  //获取价格以及参数
+      getPrice(){  
+        //获取价格以及参数
           this.$http.get('api/goods/getinfo/'+this.id).then(result=>{
               // console.log(result)
               this.price=result.body.message[0]
           })
       },
-      filterMaxcount(){ //input text限制输入的最大值
+      filterMaxcount(){ 
+        //input text限制输入的最大值
             if(this.buyCount > this.price.stock_quantity){
                 this.buyCount = this.price.stock_quantity
             }
       },
-      getDesc(id){  //利用编程式导航，通过编写代码来实现页面的跳转
+      getDesc(id){  
+        //利用编程式导航，通过编写代码来实现页面的跳转
         this.$router.push('/home/goodsDesc/'+this.id)
       },
       getComment(id){
         this.$router.push('/home/goodsComment/'+this.id)
       },
-      isshows(){
+      addToshopcar(){
         this.isshow=!this.isshow
+        this.$store.commit('addTocar',{
+          id:this.id,
+          count:this.buyCount,
+          prices:this.price.sell_price,
+          selected:true
+        })
       },
       beforeEnter(el){
         el.style.transform = "translate(0,0)"
@@ -113,7 +123,8 @@ export default {
       },
       afterEnter(el){
         this.isshow=!this.isshow
-      }
+      },
+
   },
 };
 </script>
